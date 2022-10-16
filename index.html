@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Leydi Susana Perez Balmes</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" init >
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h1 class="jumbotron"></h1>
+                    <div id="app">
+                        <table class="table table-scripped">
+                            <thead>
+                                <tr>
+                                    <th style="width:40px;"></th>
+                                    <th>Descripción</th>
+                                    <th style="width: 200px;">Monto</th>
+                                    <th style="width: 100px;">¿Cancelado?</th>
+                                    
+                                </tr>
+                                <tr v-if="items.lengyh === 0">
+                                    <td colspan="4" class="text-center">
+                                        No hay registros por mostrar
+
+                                    </td>
+
+                                </tr>
+                                <tr v-for="item, index in items">
+                                    <button
+                                        @click="remove(index)"
+                                        type="button" class=" btn btn-danger btn-xs">
+                                        <i class="glyphicon glypicon-trash"></i>
+                                    </button>
+                                    <td {{item.name}}></td>
+                                    <td {{ite,.amout.toFixed(2)}}></td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="item in items"></tr>
+                                <td>{{ item.name }}</td>
+                                <td>{{ item.name }}</td>
+                                <td>{{ item.amount.toFixed (2) }}</td>
+                                <td class="text-center":title="item.paid ? 'si': 'no'">
+
+                                </td>
+                                <td>
+                        
+                                    <button
+                                    class="btn btn-default btn-sm"
+                                    :class="{ 'btn-success': item.paid }">
+
+                                    <i v-if="item.paid" class="glyphincon glyphicon-ok"></i>
+                                    <i v-if="item.paid" class="glyphincon glyphicon-remove"></i>
+                                </button>
+                                </td>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+        <script src="https://unpkg.com/vue"></script>
+        <script>
+            var app= new Vue({
+                el: '#app', // Elemento
+                data: { // Parametros
+                items:[{
+                    name: 'Servicios',
+                    amount:200,
+                    paid: false
+                },
+                
+                {
+                    name: 'Hosting de Anexsoft',
+                    amount: 90,
+                    paid:true    
+                
+
+                }
+            }
+
+            }
+            methods: {
+                remove: function (index){
+                    this.items.splice(index, 1);
+                },
+                // Ecmascript 6 syntax
+                add(){
+                    this.items.push({
+                        name: this.newEntry.name, 
+                        amount: parseFloat(this.newEntry.amount),
+                        paid: false
+                    });
+                    this.newEntry.name='';
+                    this.newEntry.amount = 0;
+                },
+                changeToPaid (item){
+                    item.paid =!(item.paid);
+                }
+                totalAmount(){
+                    item.paid= ! (item.paid);
+                }, 0),
+                
+
+                }
+                }
+                    
+                    
+                
+            
+        
+
+        </script>
+    </body>
+
+</html>
